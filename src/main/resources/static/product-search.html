@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 8px;
+            width: 250px;
+            font-size: 14px;
+        }
+
+        .search-container button {
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            width: 260px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .product-price {
+            color: #006400;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .product-meta {
+            font-size: 13px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Product Search</h1>
+
+<div class="search-container">
+    <input type="text" id="keywordInput" placeholder="Enter product keyword (e.g., S24)">
+    <button onclick="searchProducts()">Search</button>
+</div>
+
+<div id="message" class="message"></div>
+
+<div id="productsContainer" class="products"></div>
+
+<script>
+    async function searchProducts() {
+        const keywordInput = document.getElementById('keywordInput');
+        const messageEl = document.getElementById('message');
+        const productsContainer = document.getElementById('productsContainer');
+
+        const keyword = keywordInput.value.trim();
+
+        // Clear previous message and results
+        messageEl.textContent = '';
+        productsContainer.innerHTML = '';
+
+        if (!keyword) {
+            messageEl.textContent = 'Please enter a keyword to search.';
+            return;
+        }
+
+        // Build the API URL
+        const pageSize = 3;
+        const pageNo = 0;
+        const url = `http://localhost:8080/api/customer/products?keyword=${encodeURIComponent(keyword)}&pageSize=${pageSize}&pageNo=${pageNo}`;
+
+        try {
+            messageEl.textContent = 'Searching...';
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                messageEl.textContent = `Error: ${response.status} ${response.statusText}`;
+                return;
+            }
+
+            const data = await response.json();
+
+            // Expecting data like:
+            // [
+            //   { id, name, description, price, stock, active, imageUrl, companyId, categoryId },
+            //   ...
+            // ]
+
+            if (!Array.isArray(data) || data.length === 0) {
+                messageEl.textContent = 'No products found for this keyword.';
+                return;
+            }
+
+            messageEl.textContent = `Found ${data.length} product(s).`;
+
+            data.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+
+                // Image (if present)
+                if (product.imageUrl) {
+                    const img = document.createElement('img');
+                    img.src = product.imageUrl;
+                    img.alt = product.name || 'Product image';
+                    card.appendChild(img);
+                }
+
+                // Name
+                const nameEl = document.createElement('div');
+                nameEl.className = 'product-name';
+                nameEl.textContent = product.name || 'No name';
+                card.appendChild(nameEl);
+
+                // Price
+                const priceEl = document.createElement('div');
+                priceEl.className = 'product-price';
+                priceEl.textContent = product.price != null ? `₹${product.price}` : 'Price not available';
+                card.appendChild(priceEl);
+
+                // Description
+                const descEl = document.createElement('div');
+                descEl.className = 'product-meta';
+                descEl.textContent = product.description || 'No description';
+                card.appendChild(descEl);
+
+                // Stock & Active
+                const stockEl = document.createElement('div');
+                stockEl.className = 'product-meta';
+                stockEl.textContent = `Stock: ${product.stock != null ? product.stock : 'N/A'} | Active: ${product.active ? 'Yes' : 'No'}`;
+                card.appendChild(stockEl);
+
+                productsContainer.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error(error);
+            messageEl.textContent = 'An error occurred while fetching products. Check console for details.';
+        }
+    }
+</script>
+
+</body>
+</html>
