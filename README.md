@@ -817,5 +817,47 @@ http://localhost:8080/swagger-ui.html
 
 Frontend Demo Page:  
 http://localhost:8080/content/user-interface.html  
+## Frontend UI Screenshots
+
+Below are the frontend demonstration screenshots organized in the same order as your uploaded files.
+
+### FE1 – Dashboard / Home
+![FE1](screenshots/frontend/FE1.png)
+
+### FE2 – Register Company
+![FE2](screenshots/frontend/FE2.png)
+
+### FE3 – Create Seller
+![FE3](screenshots/frontend/FE3.png)
+
+### FE4 – Delete Seller
+![FE4](screenshots/frontend/FE4.png)
+
+### FE5 – Add Product
+![FE5](screenshots/frontend/FE5.png)
+
+### FE6 – Update Product
+![FE6](screenshots/frontend/FE6.png)
+
+### FE7 – Delete Product
+![FE7](screenshots/frontend/FE7.png)
+
+### FE8 – View All Products
+![FE8](screenshots/frontend/FE8.png)
+
+### FE9 – Product Search
+![FE9](screenshots/frontend/FE9.png)
+
+### FE10 – Upload Product Image
+![FE10](screenshots/frontend/FE10.png)
+
+### FE11 – Bulk Product Upload (CSV)
+![FE11](screenshots/frontend/FE11.png)
+
+### FE12 – Add to Cart
+![FE12](screenshots/frontend/FE12.png)
+
+### FE13 – Submit Order
+![FE13](screenshots/frontend/FE13.png)
 
 
