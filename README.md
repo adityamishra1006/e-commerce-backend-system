@@ -883,5 +883,5 @@ Below are the Swagger API documentation screenshots as stored in the project.
 
 Here is the visual representation of the complete project folder structure:
 
-![Project Structure](screenshotsScreenshot%202025-11-29%20103357.png)
+![Project Structure](screenshots/Screenshot%202025-11-29%20103357.png)
 
