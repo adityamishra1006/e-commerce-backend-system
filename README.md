@@ -818,70 +818,115 @@ http://localhost:8080/swagger-ui.html
 Frontend Demo Page:  
 http://localhost:8080/content/user-interface.html  
 
-## Frontend UI Screenshots
+### Frontend UI Screenshots
 
 Below are the frontend demonstration screenshots organized in the same order as your uploaded files.
 
-### FE1 – Dashboard / Home
+#### FE1 – Dashboard / Home
 ![FE1](screenshots/frontend/FE1.png)
 
-### FE2 – Register Company
+#### FE2 – Register Company
 ![FE2](screenshots/frontend/FE2.png)
 
-### FE3 – Create Seller
+#### FE3 – Create Seller
 ![FE3](screenshots/frontend/FE3.png)
 
-### FE4 – Delete Seller
+#### FE4 – Delete Seller
 ![FE4](screenshots/frontend/FE4.png)
 
-### FE5 – Add Product
+#### FE5 – Add Product
 ![FE5](screenshots/frontend/FE5.png)
 
-### FE6 – Update Product
+#### FE6 – Update Product
 ![FE6](screenshots/frontend/FE6.png)
 
-### FE7 – Delete Product
+#### FE7 – Delete Product
 ![FE7](screenshots/frontend/FE7.png)
 
-### FE8 – View All Products
+#### FE8 – View All Products
 ![FE8](screenshots/frontend/FE8.png)
 
-### FE9 – Product Search
+#### FE9 – Product Search
 ![FE9](screenshots/frontend/FE9.png)
 
-### FE10 – Upload Product Image
+#### FE10 – Upload Product Image
 ![FE10](screenshots/frontend/FE10.png)
 
-### FE11 – Bulk Product Upload (CSV)
+#### FE11 – Bulk Product Upload (CSV)
 ![FE11](screenshots/frontend/FE11.png)
 
-### FE12 – Add to Cart
+#### FE12 – Add to Cart
 ![FE12](screenshots/frontend/FE12.png)
 
-### FE13 – Submit Order
+#### FE13 – Submit Order
 ![FE13](screenshots/frontend/FE13.png)
-## Swagger UI Screenshots
+### Swagger UI Screenshots
 
 Below are the Swagger API documentation screenshots as stored in the project.
 
-### Sw1 – Swagger API Overview
+#### Sw1 – Swagger API Overview
 ![Sw1](screenshots/swagger/Sw1.png)
 
-### Sw2 – All Controller Endpoints
+#### Sw2 – All Controller Endpoints
 ![Sw2](screenshots/swagger/Sw2.png)
 
-### Sw3 – Swagger Schema (Part 1)
+#### Sw3 – Swagger Schema (Part 1)
 ![Sw3](screenshots/swagger/Sw3.png)
 
-### Sw4 – Swagger Schema (Part 2)
+#### Sw4 – Swagger Schema (Part 2)
 ![Sw4](screenshots/swagger/Sw4.png)
 
-### Sw5 – Swagger Schema (Part 3)
+#### Sw5 – Swagger Schema (Part 3)
 ![Sw5](screenshots/swagger/Sw5.png)
 
-## Project Structure (Visual View)
+### Project Structure (Visual View)
 
 Here is the visual representation of the complete project folder structure:
 
 ![Project Structure](screenshots/Screenshot%202025-11-29%20103357.png)
 
+## Future Enhancements
+
+Planned improvements and upcoming features for this project:
+
+- Implement authentication and a secure login system.
+- Add role-based authorization for Admin, Seller, and Customer.
+- Build a fully professional and responsive frontend UI.
+- Enhance product search with advanced filters (price range, category, rating).
+- Add shopping cart management and order history tracking.
+- Create a separate microservice architecture for scalability.
+- Integrate JWT-based security for API protection.
+- Add email/SMS notifications for order updates.
+- Implement admin analytics dashboard for sales and product insights.
+- Introduce caching mechanisms to improve performance.
+
+## Known Issues / Limitations
+
+Below are some current limitations and areas that may require improvement:
+
+- Authentication and authorization are not implemented yet.
+- The frontend is a basic demo UI and not a production-ready interface.
+- No role-based access control (Admin, Seller, Customer) is enforced currently.
+- Product image upload is stored locally and not integrated with external storage (AWS S3, Cloudinary, etc.).
+- Bulk upload feature does not support detailed validation for incorrect CSV formatting.
+- No global caching mechanism is implemented for frequently accessed data.
+- Error messages can be improved for more clarity and debugging.
+- Limited validation on certain request DTOs.
+- No unit or integration tests implemented yet.
+- Running on a single service; microservices are not implemented.
+## License
+
+This project is created for learning and educational purposes only.  
+You are free to use, modify, and share the code, but it should not be used as a production-ready system without proper improvements and security enhancements.
+
+No commercial usage is permitted without explicit permission.
+## Contact / Author
+
+**Author:** Aditya Kumar Mishra  
+
+If you want to connect or view more projects:
+
+- **GitHub:** https://github.com/adityamishra1006
+- **LinkedIn:** https://www.linkedin.com/in/aditya-mishra-468197208/
+
+Feel free to reach out for collaboration, project feedback, or open-source contributions.
