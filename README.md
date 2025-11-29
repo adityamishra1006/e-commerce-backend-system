@@ -817,6 +817,7 @@ http://localhost:8080/swagger-ui.html
 
 Frontend Demo Page:  
 http://localhost:8080/content/user-interface.html  
+
 ## Frontend UI Screenshots
 
 Below are the frontend demonstration screenshots organized in the same order as your uploaded files.
@@ -859,5 +860,28 @@ Below are the frontend demonstration screenshots organized in the same order as 
 
 ### FE13 – Submit Order
 ![FE13](screenshots/frontend/FE13.png)
+## Swagger UI Screenshots
 
+Below are the Swagger API documentation screenshots as stored in the project.
+
+### Sw1 – Swagger API Overview
+![Sw1](screenshots/swagger/Sw1.png)
+
+### Sw2 – All Controller Endpoints
+![Sw2](screenshots/swagger/Sw2.png)
+
+### Sw3 – Swagger Schema (Part 1)
+![Sw3](screenshots/swagger/Sw3.png)
+
+### Sw4 – Swagger Schema (Part 2)
+![Sw4](screenshots/swagger/Sw4.png)
+
+### Sw5 – Swagger Schema (Part 3)
+![Sw5](screenshots/swagger/Sw5.png)
+
+## Project Structure (Visual View)
+
+Here is the visual representation of the complete project folder structure:
+
+![Project Structure](screenshotsScreenshot%202025-11-29%20103357.png)
 
