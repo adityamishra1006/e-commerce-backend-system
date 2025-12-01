@@ -4,50 +4,44 @@ A Spring Boot based backend application developed to manage core functionalities
 
 ## Project Overview
 
-E-Commerce Backend System is a Spring Boot–based application mainly focused on building and managing backend services for an e-commerce platform. It provides structured, reusable, and scalable REST APIs to handle core operations such as managing companies, sellers, products, and customer orders.
+E-Commerce Backend System is a Spring Boot application focused on building and managing backend services for an e-commerce platform. It provides structured and scalable REST APIs for handling core operations such as company management, seller management, product management, and customer orders.
 
-The primary focus of this project is on backend development, including API design, request handling, data persistence using Spring Data JPA, and integration with a MySQL database. Along with the backend, the project also includes a simple static frontend page that demonstrates how the APIs work in real time, making it helpful for learning, testing, and demonstration purposes.
-
-This project is ideal for understanding backend architecture, RESTful API development, database integration, and API documentation using Swagger in a practical e-commerce context.
+The project mainly emphasizes backend development, including API design, request handling, database interaction using Spring Data JPA, and MySQL integration. A simple static frontend page is also included to demonstrate how the APIs work in real time, making the project useful for learning, testing, and showcasing
 
 ## Project Description
 
-The E-Commerce Backend System is designed to solve the problem of managing and organizing core operations of an online shopping platform through a structured and scalable backend architecture. In many small and medium projects, backend logic often becomes unorganized and difficult to maintain. This project provides a clean, modular backend solution using Spring Boot and REST APIs.
+The E-Commerce Backend System provides a structured and scalable backend architecture for managing essential e-commerce operations. Many small and medium applications suffer from unorganized backend logic; this project solves that by offering a clean, modular, and database-driven REST API solution built with Spring Boot.
 
 ### Problem It Solves
-This project helps in handling key backend challenges in an e-commerce system such as product management, order processing, seller management, and company registration. It removes the need for manual data handling by providing automated APIs connected with a database, making the system efficient and reliable.
+The system handles major backend challenges such as product management, order handling, seller management, and company registration. It replaces manual data handling with automated, reliable APIs connected to a MySQL database.
 
 ### Who It Is For
-This project is useful for:
-- Students learning backend development with Java and Spring Boot  
-- Developers who want a reference backend structure for e-commerce applications  
-- Anyone who wants to understand RESTful API design with real database integration  
-- Backend-focused project demos for interviews and academic submissions  
+This project is ideal for:
+- Students learning Java and Spring Boot backend development  
+- Developers looking for a reference e-commerce backend architecture  
+- Anyone wanting to understand REST API design with real database integration  
+- Academic or interview project demonstrations  
 
 ### Functionalities Provided
-The project provides the following major functionalities:
-- Admin can register companies and manage sellers  
-- Sellers can add, update, delete, and view products  
-- Sellers can upload product images and bulk upload product data using CSV  
-- Customers can view and search products with filters and pagination  
-- Customers can add items to orders and submit orders  
-- All APIs are documented and testable using Swagger  
-- Frontend UI for visual testing of API functionalities  
+- Admin: company and seller management  
+- Seller: product CRUD operations, image upload, bulk CSV upload  
+- Customer: product search with filters and pagination, order submission  
+- All APIs documented and testable via Swagger  
+- Simple frontend page for visual API testing  
+
+---
 
 ## Key Features
 
-- Backend-focused e-commerce system built using Spring Boot.
-- RESTful APIs for managing companies, sellers, products, and orders.
-- Admin module for company and seller management.
-- Seller module for product management (add, update, delete, view).
-- Product image upload and retrieval functionality.
-- Bulk product upload using CSV files.
-- Customer module for browsing products with pagination and keyword search.
-- Order management system for creating and submitting customer orders.
-- MySQL database integration using Spring Data JPA.
-- Automatic database table creation and updates using Hibernate.
-- Swagger integration for live API documentation and testing.
-- Simple frontend dashboard for visual demonstration of all API functionalities.
+- Scalable Spring Boot backend for e-commerce operations  
+- REST APIs for Admin, Seller, and Customer modules  
+- Product management with image upload and bulk CSV import  
+- Order creation and submission workflow  
+- MySQL integration using Spring Data JPA and Hibernate  
+- Automatic schema creation and updates  
+- Swagger UI for complete API documentation and testing  
+- Lightweight frontend demo page for visual API interaction  
+
 
 ## Tech Stack & Versions
 
@@ -102,15 +96,15 @@ This structure makes the project modular, scalable, and easy to modify or extend
 ## Prerequisites
 
 Before installing and running this project, make sure the following software and tools are installed on your system:
-
+```properties
 - Java JDK 21  
 - MySQL Server (Version 8)  
 - Apache Maven (Latest stable version)  
 - Git  
 - IntelliJ IDEA (Community or Ultimate Edition)  
 - Web Browser (Google Chrome / Edge / Firefox)  
-- Postman (Optional, for API testing)  
-
+- Postman (For API testing)  
+```
 Make sure all these tools are properly installed and configured before proceeding with the project setup.
 
 ## Complete Installation Guide (For Fresh Systems)
@@ -122,10 +116,13 @@ This section explains how to install all required software step-by-step using of
 ## 1. Installing Java 21
 
 1. Download Java 21 from the official website:  
+```
    https://www.oracle.com/java/technologies/downloads/
-
+```
    OR OpenJDK alternative:  
+   ```
    https://jdk.java.net/21/
+```
 
 2. Run the installer and complete the setup.
 
@@ -137,26 +134,29 @@ For Windows:
 - Under System Variables click "New"  
 
 Variable name:  
-JAVA_HOME  
+`JAVA_HOME`  
 
 Variable value (example):  
-C:\Program Files\Java\jdk-21  
+`C:\Program Files\Java\jdk-21`  
 
 Now edit Path variable:
 - Click Path → Edit → New  
 - Add:  
-%JAVA_HOME%\bin  
+`%JAVA_HOME%\bin`  
 
 4. Verify installation by running this in terminal:
+```
 java -version
+```
 
 ---
 
 ## 2. Installing MySQL
 
 1. Download MySQL Installer from official website:  
+```
    https://dev.mysql.com/downloads/installer/
-
+```
 2. Install MySQL Server and MySQL Workbench using "Developer Default" option.
 
 3. During installation, set a **root password** (you must remember this).
@@ -164,52 +164,57 @@ java -version
 4. Start MySQL server from Windows Services if it is not running.
 
 5. Open MySQL Workbench and create the database:
-
+```
 Database name:  
-minorproject
-
+ecommercedb
+```
 ---
 
 ## 3. Installing Apache Maven
 
 1. Download Maven from official site:  
+```
    https://maven.apache.org/download.cgi
-
+```
 2. Download the Binary ZIP file.
 
 3. Extract it to a folder like:  
-C:\Program Files\Apache\Maven
+`C:\Program Files\Apache\Maven`
 
 4. Set environment variables:
 
 Add new system variable:
-MAVEN_HOME = C:\Program Files\Apache\Maven\apache-maven-3.x.x
+`MAVEN_HOME = C:\Program Files\Apache\Maven\apache-maven-3.x.x`
 
 Edit Path variable and add:
-%MAVEN_HOME%\bin
+`%MAVEN_HOME%\bin`
 
 5. Verify installation:
+```
 mvn -v
-
+```
 ---
 
 ## 4. Installing Git
 
 1. Download Git from official website:  
+```
    https://git-scm.com/downloads
-
+```
 2. Run the installer and keep default settings.
 
 3. Verify installation:
+```
 git --version
-
+```
 ---
 
 ## 5. Installing IntelliJ IDEA
 
-1. Download IntelliJ IDEA from JetBrains official website:  
+1. Download IntelliJ IDEA from JetBrains official website: 
+``` 
    https://www.jetbrains.com/idea/download/
-
+```
 2. Download the Community Edition (free).
 
 3. Install and launch IntelliJ.
@@ -224,9 +229,9 @@ File → Open → Select your project folder.
 Swagger is already configured in this project using `springdoc-openapi`.
 
 After running the project, open:
-
+```
 http://localhost:8080/swagger-ui.html
-
+```
 Swagger is used for:
 - API documentation  
 - API testing  
@@ -241,7 +246,7 @@ Before running the project, make sure:
 
 Java 21 is installed  
 MySQL Server is running  
-Database `minorproject` is created  
+Database `ecommercedb` is created  
 Maven is installed  
 Git is installed  
 IntelliJ IDEA is installed  
@@ -261,10 +266,12 @@ Follow these steps to set up and run the project on your local machine.
 ### Step 1: Clone the Repository
 
 Open terminal or Git Bash and run:
-
+```
 git clone https://github.com/your-username/e-commerce-backend-system.git  
+```
+```
 cd e-commerce-backend-system
-
+```
 ---
 
 ### Step 2: Create MySQL Database
@@ -272,35 +279,41 @@ cd e-commerce-backend-system
 1. Open MySQL Workbench or MySQL Command Line.
 2. Login using your MySQL username and password.
 3. Create a database with the name:
+`ecommercedb`
 
-minorproject
+```
+CREATE DATABASE ecommercedb;
+```
+```
+USE ecommercedb;
+```
 
 ---
 
 ### Step 3: Configure Database Settings
 
 Open the following file:
-
+```
 src/main/resources/application.properties
-
+```
 Update these values:
-
-spring.datasource.url = jdbc:mysql://localhost:3306/minorproject  
+```
+spring.datasource.url = jdbc:mysql://localhost:3306/ecommercedb  
 spring.datasource.username = your_mysql_username  
 spring.datasource.password = your_mysql_password  
-
+```
 This step is very important.  
 Make sure you change the username and password according to your system.
 
 ---
 
 ### Step 4: Open Project in IntelliJ IDEA
-
+```
 1. Open IntelliJ IDEA.
 2. Click on "Open".
 3. Select the project folder you cloned.
 4. Wait for Maven to download all required dependencies.
-
+```
 ---
 
 ### Step 5: Run the Application
@@ -313,10 +326,10 @@ Using IntelliJ:
 
 Using Terminal:
 - In the project folder run:
-
+```
 mvn clean install  
 mvn spring-boot:run  
-
+```
 ---
 
 ### Step 6: Verify the Application
@@ -324,14 +337,17 @@ mvn spring-boot:run
 Once the application starts successfully, open your browser and check:
 
 Application URL:  
+```
 http://localhost:8080  
-
+```
 Swagger URL:  
+```
 http://localhost:8080/swagger-ui.html  
-
+```
 Frontend UI:  
+```
 http://localhost:8080/content/user-interface.html  
-
+```
 ---
 
 ### Step 7: Stop the Application
@@ -351,25 +367,25 @@ Before running this project, you must configure your MySQL database connection.
 ### Database Name
 
 The database used in this project is:
-
-minorproject
-
+`
+ecommercedb
+`
 If it does not exist, create it in MySQL:
-
-CREATE DATABASE minorproject;
-
+```
+CREATE DATABASE ecommercedb;
+```
 and then,
-
-USE minorproject;
-
+```
+USE ecommercedb;
+```
 ---
 
 ### How to Configure Username and Password
 
 Open the following file inside your project:
-
+```
 src/main/resources/application.properties
-
+```
 Find the database configuration section and update it according to your system.
 
 You must change:
@@ -383,15 +399,15 @@ Because every system has different credentials.
 ### Sample application.properties Configuration
 
 Below is the sample configuration format:
-
-spring.datasource.url=jdbc:mysql://localhost:3306/minorproject  
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommercedb  
 spring.datasource.username=YOUR_MYSQL_USERNAME  
 spring.datasource.password=YOUR_MYSQL_PASSWORD  
 
 spring.jpa.hibernate.ddl-auto=update  
 spring.jpa.show-sql=true  
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-
+```
 ---
 
 ### Important Notes
@@ -402,13 +418,13 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 - If MySQL is not on localhost, replace `localhost` with your server IP address.
 
 Example for different port:
-
-spring.datasource.url=jdbc:mysql://localhost:3307/minorproject
-
+```
+spring.datasource.url=jdbc:mysql://localhost:3307/ecommercedb
+```
 Example for other host:
-
-spring.datasource.url=jdbc:mysql://192.168.1.50:3306/minorproject
-
+```
+spring.datasource.url=jdbc:mysql://192.168.1.50:3306/ecommercedb
+```
 
 ## Swagger (API Documentation Setup)
 
@@ -419,12 +435,13 @@ Swagger is integrated in this project using `springdoc-openapi` to provide inter
 ### Swagger Dependency
 
 The following Swagger dependency is used in the project:
-
+```
 <dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-</dependency>
-
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.8.9</version>
+        </dependency>
+```
 This dependency automatically configures Swagger UI and OpenAPI documentation.
 
 ---
@@ -432,15 +449,17 @@ This dependency automatically configures Swagger UI and OpenAPI documentation.
 ### Swagger URL
 
 After starting the project, you can access Swagger here:
-
+```
 http://localhost:8080/swagger-ui.html  
-
-Or:  
+```
+Or:
+```  
 http://localhost:8080/swagger-ui/index.html  
-
-OpenAPI JSON Endpoint:  
+```
+OpenAPI JSON Endpoint: 
+``` 
 http://localhost:8080/v3/api-docs  
-
+```
 ---
 
 ### How to Use Swagger
@@ -448,8 +467,9 @@ http://localhost:8080/v3/api-docs
 Once the application is running:
 
 1. Open your browser and go to:
+```
    http://localhost:8080/swagger-ui.html  
-
+```
 2. You will see a list of all API endpoints grouped by controllers.
 
 3. Click on any API endpoint to expand it.
@@ -483,85 +503,85 @@ This section lists all the main API endpoints grouped by their role and purpose.
 
 These APIs are used by the Admin to manage companies and sellers.
 
-- POST  /api/admin/company  
+- POST  `/api/admin/company` 
   → Register a new company  
 
-- POST  /api/admin/seller  
+- POST  `/api/admin/seller` 
   → Create a new seller  
 
-- GET   /api/admin/seller  
+- GET   `/api/admin/seller`
   → Get all sellers  
 
-- DELETE /api/admin/seller/{id}  
+- DELETE `/api/admin/seller/{id}` 
   → Delete a seller by ID  
 
 Example:
+```
 http://localhost:8080/api/admin/seller/90  
-
+```
 ---
 
 ### Seller APIs
 
 These APIs are used by Sellers to manage products.
 
-- POST  /api/seller/addProduct  
+- POST  `/api/seller/addProduct`
   → Add a new product  
 
-- GET   /api/seller/product  
-  → Get all products  
+- GET     `/api/seller/product`   → Get all products  
 
-- GET   /api/seller/product/{id}  
-  → Get product by ID  
+- GET   `/api/seller/product/{id}`   → Get product by ID  
 
-- PUT   /api/seller/product/{id}  
-  → Update product  
+- PUT   `/api/seller/product/{id}`   → Update product  
 
-- DELETE /api/seller/product/{id}  
+- DELETE `/api/seller/product/{id}` 
   → Delete product  
 
-- POST  /api/seller/product/image  
+- POST  `/api/seller/product/image` 
   → Upload product image  
 
-- POST  /api/seller/product/bulk  
+- POST  `/api/seller/product/bulk` 
   → Upload products in bulk using CSV  
 
 Examples:  
+```
 http://localhost:8080/api/seller/product/3  
 http://localhost:8080/api/seller/product/4  
-
+```
 ---
 
 ### Customer APIs
 
 These APIs are used by customers to browse products and place orders.
 
-- GET  /api/customer/products  
+- GET  `/api/customer/products`
   → Fetch all products  
 
-- GET  /api/customer/products?keyword=S24&pageSize=3&pageNo=0  
+- GET  `/api/customer/products?keyword=S24&pageSize=3&pageNo=0`
   → Search products with keyword and pagination  
 
-- POST /api/customer/order-item  
+- POST `/api/customer/order-item` 
   → Add products to order  
 
-- PUT  /api/customer/orders/{orderId}/submit  
-  → Submit order  
+- PUT  `/api/customer/orders/{orderId}/submit`    → Submit order  
 
 Example:  
+```
 http://localhost:8080/api/customer/orders/1/submit  
-
+```
 ---
 
 ### File / Image APIs
 
 These APIs handle product images and static file access.
 
-- GET /content/{imageName}  
+- GET `/content/{imageName}` 
   → Access uploaded images  
 
 Example image URL:  
+```
 http://localhost:8080/content/93f36792-be22-45e0-973c-f94bed52ee25_furniture.webp  
-
+```
 ---
 
 All APIs are documented and testable using Swagger UI.
@@ -571,32 +591,27 @@ All APIs are documented and testable using Swagger UI.
 
 A simple frontend UI is included in this project to demonstrate how all backend APIs are working.
 
----
 
 ### File Name
 
-The frontend file name is:  
+The frontend file name is: 
+``` 
 user-interface.html
-
----
-
+```
 ### URL
 
 Once the application is running, you can access the frontend demo page at:
-
+```
 http://localhost:8080/content/user-interface.html
-
----
+```
 
 ### Location Inside Project
 
 The file is located inside the project at:
-
+```
 src/main/resources/static/content/user-interface.html
-
+```
 All required static files like CSS, JavaScript, and images are placed inside the `static` folder.
-
----
 
 ### Purpose
 
@@ -625,13 +640,19 @@ You can run this project using either an IDE (like IntelliJ IDEA) or directly fr
 4. Locate the main class (the class with `@SpringBootApplication` annotation).
 5. Right-click on it and select **Run**.
 
-Your application will start on:  
+Your application will start on:
+```  
 http://localhost:8080
-
+```
 After startup, you can access:
-- Swagger UI: http://localhost:8080/swagger-ui.html  
-- Frontend UI: http://localhost:8080/content/user-interface.html  
-
+- Swagger UI: 
+```
+http://localhost:8080/swagger-ui.html  
+```
+- Frontend UI: 
+```
+http://localhost:8080/content/user-interface.html  
+```
 ---
 
 ### Run Using Terminal
@@ -639,8 +660,7 @@ After startup, you can access:
 1. Open terminal inside your project directory.
 2. Execute the following commands:
 
-```properties
-
+```
 mvn clean install
 mvn spring-boot:run
 ```
@@ -649,9 +669,9 @@ mvn spring-boot:run
 3. Wait for the Spring Boot application to start.
 
 Once started, the application will be available at:
-
+```
 http://localhost:8080
-
+```
 ---
 
 ### Stopping the Application
@@ -680,7 +700,7 @@ mvn clean package
 3. After the build is completed, go to the `target` folder.
 4. You will find a JAR file like:
 
-e-commerce-backend-system.jar
+`e-commerce-backend-system.jar`
 
 ---
 
@@ -688,14 +708,13 @@ e-commerce-backend-system.jar
 
 1. Open terminal inside the `target` folder.
 2. Run this command:
-
+```
 java -jar e-commerce-backend-system.jar
-
+```
 3. Your application will start on:
-
+```
 http://localhost:8080
-
----
+```
 
 ### Important Note While Running JAR
 
@@ -705,16 +724,19 @@ Before running the JAR file:
 - Port `8080` should be free.
 
 After that, you can access:
-- Swagger UI: http://localhost:8080/swagger-ui.html  
-- Frontend UI: http://localhost:8080/content/user-interface.html  
-
+- Swagger UI:
+``` 
+http://localhost:8080/swagger-ui.html  
+```
+- Frontend UI: 
+```
+http://localhost:8080/content/user-interface.html  
+```
 
 
 ## Common Errors and Troubleshooting
 
 Here are some common issues and their solutions:
-
----
 
 ### 1. Port 8080 Already in Use
 
@@ -723,8 +745,8 @@ Port 8080 is already in use.
 
 Solution:
 - Stop the application that is using port 8080.
-- OR change the port in application.properties:
-  server.port=9090
+- OR change the port in `application.properties:
+  server.port=9090`
 
 ---
 
@@ -735,8 +757,8 @@ Cannot connect to database.
 
 Solution:
 - Make sure MySQL Server is running.
-- Check database name: minorproject
-- Verify username and password in application.properties.
+- Check database name: `ecommercedb`
+- Verify username and password in `application.properties`.
 - Check MySQL port (default is 3306).
 
 ---
@@ -749,8 +771,9 @@ Swagger UI not loading.
 Solution:
 - Make sure your application is running.
 - Open correct URL:  
+```
   http://localhost:8080/swagger-ui.html
-
+```
 ---
 
 ### 4. JAR File Not Running
@@ -759,8 +782,10 @@ Problem:
 JAR file fails to start.
 
 Solution:
-- Verify Java version is 21 using:  
+- Verify Java version is 21 using: 
+``` 
   java -version  
+```
 - Make sure JAVA_HOME is set correctly.
 - Check database connection before starting JAR.
 
@@ -796,26 +821,139 @@ You can use this JAR file to run the project without using an IDE.
 ## How to Run JAR File
 
 After generating the JAR file, you can run it using the following command:
-
+```
 java -jar your-jar-file-name.jar
-
+```
 Example:
-
+```
 java -jar e-commerce-backend-system.jar
-
+```
 Make sure before running the JAR:
 - MySQL server is running.
 - Database configuration (username and password) is correct.
 - Port 8080 is free.
 
 Once the JAR starts successfully, access your application at:
-
+```
 http://localhost:8080
-
+```
 Swagger UI:  
+```
 http://localhost:8080/swagger-ui.html  
-
+```
 Frontend Demo Page:  
+```
 http://localhost:8080/content/user-interface.html  
+```
+### Frontend UI Screenshots
 
+Below are the frontend demonstration screenshots organized in the same order as your uploaded files.
 
+#### FE1 – Dashboard / Home
+![FE1](screenshots/frontend/FE1.png)
+
+#### FE2 – Register Company
+![FE2](screenshots/frontend/FE2.png)
+
+#### FE3 – Create Seller
+![FE3](screenshots/frontend/FE3.png)
+
+#### FE4 – Delete Seller
+![FE4](screenshots/frontend/FE4.png)
+
+#### FE5 – Add Product
+![FE5](screenshots/frontend/FE5.png)
+
+#### FE6 – Update Product
+![FE6](screenshots/frontend/FE6.png)
+
+#### FE7 – Delete Product
+![FE7](screenshots/frontend/FE7.png)
+
+#### FE8 – View All Products
+![FE8](screenshots/frontend/FE8.png)
+
+#### FE9 – Product Search
+![FE9](screenshots/frontend/FE9.png)
+
+#### FE10 – Upload Product Image
+![FE10](screenshots/frontend/FE10.png)
+
+#### FE11 – Bulk Product Upload (CSV)
+![FE11](screenshots/frontend/FE11.png)
+
+#### FE12 – Add to Cart
+![FE12](screenshots/frontend/FE12.png)
+
+#### FE13 – Submit Order
+![FE13](screenshots/frontend/FE13.png)
+### Swagger UI Screenshots
+
+Below are the Swagger API documentation screenshots as stored in the project.
+
+#### Sw1 – Swagger API Overview
+![Sw1](screenshots/swagger/Sw1.png)
+
+#### Sw2 – All Controller Endpoints
+![Sw2](screenshots/swagger/Sw2.png)
+
+#### Sw3 – Swagger Schema (Part 1)
+![Sw3](screenshots/swagger/Sw3.png)
+
+#### Sw4 – Swagger Schema (Part 2)
+![Sw4](screenshots/swagger/Sw4.png)
+
+#### Sw5 – Swagger Schema (Part 3)
+![Sw5](screenshots/swagger/Sw5.png)
+
+### Project Structure (Visual View)
+
+Here is the visual representation of the complete project folder structure:
+
+![Project Structure](screenshots/Screenshot%202025-11-29%20103357.png)
+
+## Future Enhancements
+
+Planned improvements and upcoming features for this project:
+
+- Implement authentication and a secure login system.
+- Add role-based authorization for Admin, Seller, and Customer.
+- Build a fully professional and responsive frontend UI.
+- Enhance product search with advanced filters (price range, category, rating).
+- Add shopping cart management and order history tracking.
+- Create a separate microservice architecture for scalability.
+- Integrate JWT-based security for API protection.
+- Add email/SMS notifications for order updates.
+- Implement admin analytics dashboard for sales and product insights.
+- Introduce caching mechanisms to improve performance.
+
+## Known Issues / Limitations
+
+Below are some current limitations and areas that may require improvement:
+
+- Authentication and authorization are not implemented yet.
+- The frontend is a basic demo UI and not a production-ready interface.
+- No role-based access control (Admin, Seller, Customer) is enforced currently.
+- Product image upload is stored locally and not integrated with external storage (AWS S3, Cloudinary, etc.).
+- Bulk upload feature does not support detailed validation for incorrect CSV formatting.
+- No global caching mechanism is implemented for frequently accessed data.
+- Error messages can be improved for more clarity and debugging.
+- Limited validation on certain request DTOs.
+- No unit or integration tests implemented yet.
+- Running on a single service; microservices are not implemented.
+## License
+
+This project is created for learning and educational purposes only.  
+You are free to use, modify, and share the code, but it should not be used as a production-ready system without proper improvements and security enhancements.
+
+No commercial usage is permitted without explicit permission.
+## Contact / Author
+
+**Author:** Aditya Kumar Mishra  
+
+If you want to connect or view more projects:
+
+- **GitHub:** https://github.com/adityamishra1006
+- **LinkedIn:** https://www.linkedin.com/in/aditya-mishra-468197208/
+
+Feel free to reach out for collaboration, project feedback, or open-source contributions.
