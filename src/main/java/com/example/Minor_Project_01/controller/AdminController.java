@@ -8,6 +8,7 @@ import com.example.Minor_Project_01.dto.SellerDTO;
 import com.example.Minor_Project_01.exception.NotFoundException;
 import com.example.Minor_Project_01.services.AdminService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class AdminController {
     }
 
     @PostMapping("/seller")
-    public ResponseEntity<CreateResponseDTO> createSeller(@RequestBody SellerDTO sellerDTO) {
+    public ResponseEntity<CreateResponseDTO> createSeller(@RequestBody @Valid SellerDTO sellerDTO) {
         LOGGER.info("Creating a new seller");
         return ResponseEntity.ok((adminService.createSeller((sellerDTO))));
     }
