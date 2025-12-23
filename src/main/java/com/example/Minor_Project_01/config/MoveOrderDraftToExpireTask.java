@@ -20,7 +20,7 @@ public class MoveOrderDraftToExpireTask {
     @Autowired
     private OrderRepo orderRepo;
 
-    @Scheduled(fixedDelay = 5000)
+//    @Scheduled(fixedDelay = 5000)
     public void markOrderExpired() {
         LOGGER.info("Moving orders from draft to expired");
 

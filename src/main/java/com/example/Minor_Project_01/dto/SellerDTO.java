@@ -17,4 +17,6 @@ public class SellerDTO {
     private String email;
     @NotNull
     private Long companyId;
+    @NotNull
+    private String password;
 }

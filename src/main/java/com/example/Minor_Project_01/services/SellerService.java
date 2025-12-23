@@ -7,11 +7,13 @@ import com.example.Minor_Project_01.dto.ResponseDTO;
 import com.example.Minor_Project_01.entity.Category;
 import com.example.Minor_Project_01.entity.Company;
 import com.example.Minor_Project_01.entity.Product;
+import com.example.Minor_Project_01.entity.User;
 import com.example.Minor_Project_01.exception.NotFoundException;
 import com.example.Minor_Project_01.repo.CategoryRepo;
 import com.example.Minor_Project_01.repo.CompanyRepo;
 import com.example.Minor_Project_01.repo.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +32,7 @@ public class SellerService {
     private CategoryRepo categoryRepo;
 
     public CreateResponseDTO createProduct(ProductDTO productDTO){
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Product product = new Product();
         product.setName(productDTO.getName());
         product.setPrice(productDTO.getPrice());
@@ -38,7 +41,7 @@ public class SellerService {
         product.setActive((productDTO.getActive()));
         product.setImageUrl(productDTO.getImageUrl());
 
-        Company company = companyRepo.findById(productDTO.getCompanyId()).get();
+        Company company = user.getCompany();
         product.setCompany(company);
 
         Category category = categoryRepo.findById(productDTO.getCategoryId()).get();
@@ -53,7 +56,8 @@ public class SellerService {
     }
 
     public List<ProductDTO> getProducts(){
-        List<Product> products = productRepo.findAll();
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Product> products = productRepo.findByCompany(user.getCompany());
         List<ProductDTO> result = new ArrayList<>();
         for(Product product : products){
             ProductDTO productDTO = ProductDTO.buildDTOFromProdcut(product);
@@ -63,10 +67,11 @@ public class SellerService {
     }
 
     @Transactional
-    public ResponseDTO updateProduct(Long id, ProductDTO productDTO){
+    public ResponseDTO updateProduct(Long id, ProductDTO productDTO) throws NotFoundException {
         Product product = productRepo.findById(id).get();
-        if(product == null){
-
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(product == null || !product.getCompany().equals(user.getCompany())){
+            throw new NotFoundException("Product Not Exist");
         }
         product.setName(productDTO.getName());
         product.setPrice(productDTO.getPrice());
@@ -83,6 +88,10 @@ public class SellerService {
 
     public ResponseDTO deleteProduct(Long id) throws NotFoundException {
         Product product = productRepo.findById(id).orElseThrow(() -> new NotFoundException("Product not found with id: " + id));
+        User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(product == null || !product.getCompany().equals(user.getCompany())){
+            throw new NotFoundException("Product Not Exist");
+        }
         productRepo.deleteById(id);
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setMessage("Product deleted successfully");

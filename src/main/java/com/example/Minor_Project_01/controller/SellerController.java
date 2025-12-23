@@ -50,7 +50,7 @@ public class SellerController {
     }
 
     @PutMapping("/product/{id}")
-    public ResponseEntity<ResponseDTO> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO){
+    public ResponseEntity<ResponseDTO> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) throws NotFoundException {
         return ResponseEntity.ok(sellerService.updateProduct(id, productDTO));
     }
 
@@ -87,7 +87,6 @@ public class SellerController {
             productDTO.setPrice(Double.valueOf(csvRecord.get("price")));
             productDTO.setActive(Boolean.valueOf(csvRecord.get("active")));
             productDTO.setStock(Integer.valueOf(csvRecord.get("stock")));
-            productDTO.setCompanyId(Long.valueOf(csvRecord.get("companyId")));
             productDTO.setCategoryId(Long.valueOf(csvRecord.get("categoryId")));
             productDTO.setImageUrl(csvRecord.get("imageUrl"));
 

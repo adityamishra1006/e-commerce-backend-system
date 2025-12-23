@@ -21,8 +21,6 @@ public class ProductDTO {
     private Boolean active;
 
     private String imageUrl;
-
-    private Long companyId;
     private Long categoryId;
 
     public static ProductDTO buildDTOFromProdcut(Product product) {
@@ -34,7 +32,6 @@ public class ProductDTO {
                 .stock(product.getStock())
                 .active(product.getActive())
                 .categoryId(product.getCategory().getId())
-                .companyId(product.getCompany().getId())
                 .description(product.getDescription())
                 .build();
         return productDTO;

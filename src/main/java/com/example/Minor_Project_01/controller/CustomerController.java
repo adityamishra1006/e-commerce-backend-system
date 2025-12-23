@@ -20,11 +20,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("products")
-    public ResponseEntity<List<ProductDTO>> getProductsByKey(@RequestParam String keyword, @RequestParam Integer pageSize, @RequestParam Integer pageNo){
-        Pageable pageable = Pageable.ofSize(pageSize).withPage(pageNo);
-        return ResponseEntity.ok(customerService.getProductsByKeyword(keyword, pageable));
-    }
+
 
     @GetMapping("/products/{id}")
     public ResponseEntity<ProductDTO> getProduct(@PathVariable Long id){

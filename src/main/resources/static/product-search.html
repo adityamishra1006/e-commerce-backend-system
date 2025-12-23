@@ -106,7 +106,7 @@
         // Build the API URL
         const pageSize = 3;
         const pageNo = 0;
-        const url = `http://localhost:8080/api/customer/products?keyword=${encodeURIComponent(keyword)}&pageSize=${pageSize}&pageNo=${pageNo}`;
+        const url = `http://localhost:8080/public/products?keyword=${encodeURIComponent(keyword)}&pageSize=${pageSize}&pageNo=${pageNo}`;
 
         try {
             messageEl.textContent = 'Searching...';

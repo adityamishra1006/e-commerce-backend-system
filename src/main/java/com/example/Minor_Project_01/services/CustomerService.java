@@ -7,6 +7,7 @@ import com.example.Minor_Project_01.repo.OrderRepo;
 import com.example.Minor_Project_01.repo.ProductRepo;
 import com.example.Minor_Project_01.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,7 +52,7 @@ public class CustomerService {
 //            throw new NotFoundException("Product not found with id: " + addToOrderDto.getProductId());
 //        }
 //
-        User user = userRepo.findById(addToOrderDto.getUserId()).get();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Order> orderList = orderRepo.findByStatusAndUser(OrderStatus.DRAFT, user);
 
         Order existingOrder;

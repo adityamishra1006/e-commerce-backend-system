@@ -14,6 +14,7 @@ import jakarta.persistence.EntityManager;
 import org.hibernate.annotations.NotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
@@ -32,6 +33,9 @@ public class AdminService {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Transactional
     public CreateResponseDTO createCompany(CreateCompanyRequestDTO companyRequestDTO){
@@ -58,8 +62,8 @@ public class AdminService {
         seller.setName(sellerDTO.getName());
         seller.setCompany(company);
         seller.setEmail(sellerDTO.getEmail());
-
         seller.setRole(Role.SELLER);
+        seller.setPassword(passwordEncoder.encode(sellerDTO.getPassword()));
 
         entityManager.persist(seller);
 
