@@ -27,6 +27,8 @@ public class CustomerService {
     private OrderRepo orderRepo;
 
     public List<ProductDTO> getProductsByKeyword(String keyword, Pageable pageable){
+        // check in cache
+        String key = "Search: " + keyword + " Page: " + pageable.getPageNumber() + " Size: " + pageable.getPageSize();
         List<Product> productList = productRepo.findByNameContaining(keyword, pageable);
         List<ProductDTO> result = new ArrayList<>();
         for(Product product : productList){
