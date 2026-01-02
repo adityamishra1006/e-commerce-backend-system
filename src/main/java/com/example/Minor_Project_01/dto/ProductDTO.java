@@ -4,12 +4,16 @@ package com.example.Minor_Project_01.dto;
 import com.example.Minor_Project_01.entity.Product;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Setter
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDTO {
+public class ProductDTO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Long id;
 

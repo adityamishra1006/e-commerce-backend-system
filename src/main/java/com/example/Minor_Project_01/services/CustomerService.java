@@ -7,6 +7,7 @@ import com.example.Minor_Project_01.repo.OrderRepo;
 import com.example.Minor_Project_01.repo.ProductRepo;
 import com.example.Minor_Project_01.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,14 +27,23 @@ public class CustomerService {
     @Autowired
     private OrderRepo orderRepo;
 
+    @Autowired
+    private RedisTemplate<String, List<ProductDTO>> redisTemplate;
+
     public List<ProductDTO> getProductsByKeyword(String keyword, Pageable pageable){
         // check in cache
         String key = "Search: " + keyword + " Page: " + pageable.getPageNumber() + " Size: " + pageable.getPageSize();
-        List<Product> productList = productRepo.findByNameContaining(keyword, pageable);
-        List<ProductDTO> result = new ArrayList<>();
-        for(Product product : productList){
-            ProductDTO productDTO = ProductDTO.buildDTOFromProdcut(product);
-            result.add(productDTO);
+
+        List<ProductDTO> result = redisTemplate.opsForValue().get(key);
+
+        if(result == null){
+            List<Product> productList = productRepo.findByNameContaining(keyword, pageable);
+            result = new ArrayList<>();
+            for(Product product : productList){
+                ProductDTO productDTO = ProductDTO.buildDTOFromProdcut(product);
+                result.add(productDTO);
+            }
+            redisTemplate.opsForValue().set(key, result);
         }
         return result;
     }
