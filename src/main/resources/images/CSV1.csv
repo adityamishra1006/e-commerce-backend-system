@@ -1,0 +1,5 @@
+S.No. ,Name,Description,price,Stock,Active,categoryId,companyId,imageUrl
+1,A1,A1 details,100,34,TRUE,1,1,http://localhost:8080/content/ab3913ed-b4ad-4780-a51d-da9a4fddeb95_samsumg-s24.webp
+2,A2,A2 details,200,32,TRUE,2,1,http://localhost:8080/content/93f36792-be22-45e0-973c-f94bed52ee25_furniture.webp
+3,A3,A3 details,300,45,TRUE,1,1,"http://localhost:8080/content/ab3913ed-b4ad-4780-a51d-da9a4fddeb95_samsumg-s24.webp"""
+4,A4,A4 details,400,67,TRUE,2,1,http://localhost:8080/content/93f36792-be22-45e0-973c-f94bed52ee25_furniture.webp
